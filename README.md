@@ -30,7 +30,7 @@ docker pull craftslab/flutterdocker:latest
 
 ### Reference
 
-- **[Android Repository](https://dl.google.com/android/repository/repository2-1.xml)**
+- **[Android Repo](https://dl.google.com/android/repository/repository2-1.xml)**
 
 ```bash
 # repository2-1.xml
