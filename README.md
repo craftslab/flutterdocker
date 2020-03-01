@@ -1,6 +1,6 @@
 # flutterdocker
 
-*Flutter Docker* is Dockerfile for Android & Flutter SDK built on Ubuntu.
+*Flutter Docker* is the Dockerfile for Android & Flutter SDK built on Ubuntu.
 
 
 
