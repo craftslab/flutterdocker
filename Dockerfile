@@ -8,10 +8,11 @@ ENV SHELL="/bin/bash"
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt update -y > /dev/null && \
-    apt install --no-install-recommends -y curl git lib32stdc++6 && \
-    apt install --no-install-recommends -y openjdk-8-jdk-headless && \
+    apt install --no-install-recommends -y curl git gnupg lib32stdc++6 && \
+    apt install --no-install-recommends -y openjdk-8-jdk openjdk-8-jdk-headless && \
     apt install --no-install-recommends -y openssh-client openssh-server && \
-    apt install --no-install-recommends -y sudo unzip wget xz-utils zip
+    apt install --no-install-recommends -y python3 python3-dev python3-pip && \
+    apt install --no-install-recommends -y sudo unzip vim wget xz-utils zip
 RUN apt autoremove --purge -y > /dev/null && \
     apt autoclean -y > /dev/null && \
     rm -rf /var/lib/apt/lists/* && \
