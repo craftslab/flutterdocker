@@ -1,8 +1,6 @@
 #!/bin/bash
 
-NAME=flutterdocker
+NAME=craftslab/flutterdocker
 TAG=latest
 
-docker run -it \
-    -e "SHELL=$SHELL" \
-    $NAME:$TAG
+docker run -i -e "SHELL=$SHELL" --rm $NAME:$TAG pwd

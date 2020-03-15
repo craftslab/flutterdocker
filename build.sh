@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME=flutterdocker
+NAME=craftslab/flutterdocker
 TAG=latest
 
 docker build --no-cache -f Dockerfile -t $NAME:$TAG .
