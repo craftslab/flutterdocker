@@ -3,4 +3,4 @@
 NAME=craftslab/flutterdocker
 TAG=latest
 
-docker run -i -e "SHELL=$SHELL" --rm $NAME:$TAG pwd
+docker run -i -e "SHELL=$SHELL" --rm $NAME:$TAG ./sample.sh release
