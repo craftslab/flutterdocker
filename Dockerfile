@@ -29,7 +29,9 @@ WORKDIR /home/craftslab
 ARG ANDROID=/home/craftslab/opt/android
 ARG FLUTTER=/home/craftslab/opt/flutter
 ENV ANDROID_HOME=$ANDROID
+ENV FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 ENV PATH=$ANDROID/tools/bin:$FLUTTER/bin:$FLUTTER/bin/cache/dart-sdk/bin:$PATH
+ENV PUB_HOSTED_URL=https://pub.flutter-io.cn
 RUN wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \
     mkdir -p $ANDROID; unzip sdk-tools-linux-4333796.zip -d $ANDROID > /dev/null && \
     rm -f sdk-tools-linux-4333796.zip
