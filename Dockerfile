@@ -40,6 +40,6 @@ RUN wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flut
     rm -f flutter_linux_v1.12.13+hotfix.8-stable.tar.xz
 RUN mkdir $HOME/.android; echo "count=0" > $HOME/.android/repositories.cfg && \
     yes | sdkmanager --licenses > /dev/null && \
-    yes | sdkmanager "tools" "build-tools;29.0.0" "platforms;android-29" "platform-tools" > /dev/null && \
+    yes | sdkmanager "tools" "build-tools;28.0.3" "platforms;android-28" "platform-tools" > /dev/null && \
     yes | sdkmanager --licenses > /dev/null && \
     flutter doctor -v
