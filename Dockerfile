@@ -35,9 +35,9 @@ ENV PUB_HOSTED_URL=https://pub.flutter-io.cn
 RUN wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \
     mkdir -p $ANDROID; unzip sdk-tools-linux-4333796.zip -d $ANDROID > /dev/null && \
     rm -f sdk-tools-linux-4333796.zip
-RUN wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.8-stable.tar.xz && \
-    tar xf flutter_linux_v1.12.13+hotfix.8-stable.tar.xz -C $HOME/opt > /dev/null && \
-    rm -f flutter_linux_v1.12.13+hotfix.8-stable.tar.xz
+RUN wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.17.2-stable.tar.xz && \
+    tar xf flutter_linux_1.17.2-stable.tar.xz -C $HOME/opt > /dev/null && \
+    rm -f flutter_linux_1.17.2-stable.tar.xz
 RUN mkdir $HOME/.android; echo "count=0" > $HOME/.android/repositories.cfg && \
     yes | sdkmanager "build-tools;28.0.3" > /dev/null && \
     yes | sdkmanager "extras;android;m2repository" > /dev/null && \
