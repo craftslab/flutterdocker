@@ -1,5 +1,13 @@
 # flutterdocker
 
+[![Docker](https://img.shields.io/docker/pulls/craftslab/flutterdocker)](https://hub.docker.com/r/craftslab/flutterdocker)
+[![License](https://img.shields.io/github/license/craftslab/flutterdocker.svg?color=brightgreen)](https://github.com/craftslab/flutterdocker/blob/master/LICENSE)
+[![Tag](https://img.shields.io/github/tag/craftslab/flutterdocker.svg?color=brightgreen)](https://github.com/craftslab/flutterdocker/tags)
+
+
+
+## Introduction
+
 *Flutter Docker* is the Dockerfile for Android & Flutter SDK built on Ubuntu.
 
 
