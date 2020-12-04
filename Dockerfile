@@ -19,15 +19,15 @@ RUN apt autoremove --purge -y > /dev/null && \
     rm -rf /var/log/* && \
     rm -rf /tmp/*
 RUN echo "StrictHostKeyChecking no" | tee --append /etc/ssh/ssh_config && \
-    echo "craftslab ALL=(ALL) NOPASSWD: ALL" | tee --append /etc/sudoers && \
+    echo "zte ALL=(ALL) NOPASSWD: ALL" | tee --append /etc/sudoers && \
     ln -fs /bin/bash /bin/sh && \
-    groupadd -g $GID craftslab && \
-    useradd -d /home/craftslab -ms /bin/bash -g craftslab -u $UID craftslab
+    groupadd -g $GID zte && \
+    useradd -d /home/zte -ms /bin/bash -g zte -u $UID zte
 
-USER craftslab
-WORKDIR /home/craftslab
-ARG ANDROID=/home/craftslab/opt/android
-ARG FLUTTER=/home/craftslab/opt/flutter
+USER zte
+WORKDIR /home/zte
+ARG ANDROID=/home/zte/opt/android
+ARG FLUTTER=/home/zte/opt/flutter
 ENV ANDROID_HOME=$ANDROID
 ENV FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 ENV PATH=$ANDROID/tools/bin:$FLUTTER/bin:$FLUTTER/bin/cache/dart-sdk/bin:$PATH
