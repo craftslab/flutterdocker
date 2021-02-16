@@ -12,7 +12,7 @@
 
 
 
-### Build
+## Build
 
 ```bash
 ./build.sh
@@ -20,7 +20,7 @@
 
 
 
-### Deploy
+## Deploy
 
 ```bash
 docker pull craftslab/flutterdocker:latest
@@ -28,7 +28,7 @@ docker pull craftslab/flutterdocker:latest
 
 
 
-### Run
+## Run
 
 ```bash
 ./run.sh
@@ -36,23 +36,20 @@ docker pull craftslab/flutterdocker:latest
 
 
 
-### Reference
+## Reference
 
-- **[Android Repo](https://dl.google.com/android/repository/repository2-1.xml)**
+- [Android SDK](https://dl.google.com/android/repository/repository2-1.xml)
 
-  ```bash
-  # repository2-1.xml
-  #
-  #<complete>
-  #       <size>154582459</size>
-  #       <checksum>8c7c28554a32318461802c1291d76fccfafde054</checksum>
-  #       <url>sdk-tools-linux-4333796.zip</url>
-  #</complete>
-  #<host-os>linux</host-os>
-  wget https://dl.google.com/android/repository/repository2-1.xml
-  wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-  ```
-
-
-
-- **[Flutter Dev](https://flutter.dev/docs/get-started/)**
+```bash
+# repository2-1.xml
+#
+#<complete>
+#       <size>154582459</size>
+#       <checksum>8c7c28554a32318461802c1291d76fccfafde054</checksum>
+#       <url>sdk-tools-linux-4333796.zip</url>
+#</complete>
+#<host-os>linux</host-os>
+curl -L https://dl.google.com/android/repository/repository2-1.xml -o repository.xml
+curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o sdk-tools.zip
+```
+- [Flutter Docs](https://flutter.dev/docs/get-started/)
