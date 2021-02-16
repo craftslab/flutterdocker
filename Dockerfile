@@ -8,11 +8,11 @@ ENV SHELL="/bin/bash"
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt update -y > /dev/null && \
-    apt install --no-install-recommends -y curl git gnupg lib32stdc++6 && \
-    apt install --no-install-recommends -y openjdk-8-jdk openjdk-8-jdk-headless && \
-    apt install --no-install-recommends -y openssh-client openssh-server && \
-    apt install --no-install-recommends -y python3 python3-dev python3-pip && \
-    apt install --no-install-recommends -y sudo unzip vim wget xz-utils zip
+    apt install -y curl git gnupg lib32stdc++6 && \
+    apt install -y openjdk-8-jdk openjdk-8-jdk-headless && \
+    apt install -y openssh-client openssh-server && \
+    apt install -y python3 python3-dev python3-pip && \
+    apt install -y sudo unzip vim xz-utils zip
 RUN apt autoremove --purge -y > /dev/null && \
     apt autoclean -y > /dev/null && \
     rm -rf /var/lib/apt/lists/* && \
@@ -20,7 +20,8 @@ RUN apt autoremove --purge -y > /dev/null && \
     rm -rf /tmp/*
 RUN echo "StrictHostKeyChecking no" | tee --append /etc/ssh/ssh_config && \
     echo "craftslab ALL=(ALL) NOPASSWD: ALL" | tee --append /etc/sudoers && \
-    ln -fs /bin/bash /bin/sh && \
+    echo "dash dash/sh boolean false" | debconf-set-selections && \
+    DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash && \
     groupadd -g $GID craftslab && \
     useradd -d /home/craftslab -ms /bin/bash -g craftslab -u $UID craftslab
 
@@ -32,12 +33,12 @@ ENV ANDROID_HOME=$ANDROID
 ENV FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 ENV PATH=$ANDROID/tools/bin:$FLUTTER/bin:$FLUTTER/bin/cache/dart-sdk/bin:$PATH
 ENV PUB_HOSTED_URL=https://pub.flutter-io.cn
-RUN wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && \
-    mkdir -p $ANDROID; unzip sdk-tools-linux-4333796.zip -d $ANDROID > /dev/null && \
-    rm -f sdk-tools-linux-4333796.zip
-RUN wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.4-stable.tar.xz && \
-    tar xf flutter_linux_1.22.4-stable.tar.xz -C $HOME/opt > /dev/null && \
-    rm -f flutter_linux_1.22.4-stable.tar.xz
+RUN curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o sdk-tools.zip && \
+    mkdir -p $ANDROID; unzip sdk-tools.zip -d $ANDROID > /dev/null && \
+    rm -f sdk-tools.zip
+RUN curl -L https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.4-stable.tar.xz -o flutter.tar.xz && \
+    tar xf flutter.tar.xz -C $HOME/opt > /dev/null && \
+    rm -f flutter.tar.xz
 RUN mkdir $HOME/.android; echo "count=0" > $HOME/.android/repositories.cfg && \
     yes | sdkmanager "build-tools;30.0.2" > /dev/null && \
     yes | sdkmanager "extras;android;m2repository" > /dev/null && \
